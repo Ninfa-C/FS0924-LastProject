@@ -42,7 +42,7 @@ namespace LastProject.Controllers
 
             var count = result.Count();
 
-            var text = count == 1 ? $"{count} studente trovato" : $"{count} studenti trovati";
+            var text = count == 1 ? $"{count} artisti trovato" : $"{count} studenti trovati";
 
             var artist = result.Select(s => new ArtistDto
             {
@@ -128,7 +128,7 @@ namespace LastProject.Controllers
         }
 
 
-        [Authorize(Roles="Amministratore")]
+        [Authorize(Roles = "Amministratore")]
         [HttpPut]
         public async Task<IActionResult> Update([FromQuery] Guid id, [FromBody] EditArtist model)
         {

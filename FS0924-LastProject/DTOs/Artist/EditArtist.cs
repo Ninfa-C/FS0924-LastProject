@@ -4,8 +4,6 @@ namespace LastProject.DTOs.Artist
 {
     public class EditArtist
     {
-        [Required]
-        public Guid Id { get; set; }
         [StringLength(100)]
         public required string Name { get; set; }
 

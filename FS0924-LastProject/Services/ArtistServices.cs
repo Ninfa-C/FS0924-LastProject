@@ -2,6 +2,7 @@
 using LastProject.DTOs.Artist;
 using LastProject.Models.Main;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace LastProject.Services
 {
@@ -10,6 +11,7 @@ namespace LastProject.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly ShareService _shareService;
+
         public ArtistServices(ApplicationDbContext context, ShareService shareService)
         {
             _context = context;

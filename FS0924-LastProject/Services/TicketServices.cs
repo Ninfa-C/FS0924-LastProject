@@ -1,6 +1,7 @@
 ﻿using LastProject.Data;
 using LastProject.Models.Main;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace LastProject.Services
 {
@@ -8,8 +9,7 @@ namespace LastProject.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly ShareService _shareService;
-
-        public TicketServices(ApplicationDbContext context, ShareService shareService)
+        public TicketServices(ApplicationDbContext context, ShareService shareService, ILogger<TicketServices> logger)
         {
             _context = context;
             _shareService = shareService;
@@ -49,12 +49,19 @@ namespace LastProject.Services
 
         public async Task<bool> Delete(Guid id, string userId)
         {
+            Log.Warning("Tentativo di eliminazione biglietto ID: {TicketId} da parte dell'utente {UserId}", id, userId);
             var result = await _context.Tickets.FindAsync(id);
             if (result == null) return false;
-            if (result.UserId != userId) return false;
+            if (result.UserId != userId)
+            {
+                Log.Warning("Tentativo non autorizzato di eliminazione biglietto ID: {TicketId} da parte di {UserId}", id, userId);
+                return false;
+            }
 
             _context.Tickets.Remove(result);
-            return await _shareService.SaveAsync();
+            await _shareService.SaveAsync();
+            Log.Information("Biglietto ID: {TicketId} eliminato con successo", id);
+            return true;
         }
 
         public async Task<List<Ticket>> GetAll()

@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "eea20d35-9267-4dec-88ce-908bfd42c878",
+		"name": "LastProject",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40392832"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"surname\": \"string\",\r\n  \"email\": \"user@example.com\",\r\n  \"username\": \"string\",\r\n  \"password\": \"string\",\r\n  \"confirmPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Account/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login\": \"ninfa\",\r\n  \"password\": \"Adminadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artist",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Artist",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Artist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Artist/64ced28e-42a2-4f58-bd22-08dd6e08a60e",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Artist",
+								"64ced28e-42a2-4f58-bd22-08dd6e08a60e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Artist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE3ODgwNCwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.6SE9B-ICogyOwztEVW8tDNzKiTgwjI-02P-8Oshj1Rs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Dua Lipa\",\r\n  \"genre\": \"Pop\",\r\n  \"description\": \"Cantante\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Artist",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Artist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE3ODgwNCwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.6SE9B-ICogyOwztEVW8tDNzKiTgwjI-02P-8Oshj1Rs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Nali\",\r\n  \"genre\": \"Pop\",\r\n  \"description\": \"Cantante brava\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Artist?id=aebde25b-7531-445c-721b-08dd6e0f5a5b",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Artist"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "aebde25b-7531-445c-721b-08dd6e0f5a5b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE3ODgwNCwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.6SE9B-ICogyOwztEVW8tDNzKiTgwjI-02P-8Oshj1Rs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Artist/aa54dd0f-270b-4943-7219-08dd6e0f5a5b",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Artist",
+								"aa54dd0f-270b-4943-7219-08dd6e0f5a5b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Event",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Event/5db65fcb-5286-49c5-3088-08dd6e175946",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Event",
+								"5db65fcb-5286-49c5-3088-08dd6e175946"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE4NTM2MSwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.60mfvPncRkegbcRaU1RYu1HQvLqltBspP3nvhMlfvIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titolo\": \"Concerto\",\r\n  \"location\": \"Palasport\",\r\n  \"price\": 10.99,\r\n  \"maxSeats\": 300,\r\n  \"artistId\" : \"136f4126-fc3b-4da7-7218-08dd6e0f5a5b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Event",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE4NTM2MSwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.60mfvPncRkegbcRaU1RYu1HQvLqltBspP3nvhMlfvIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titolo\": \"Concerto\",\r\n  \"location\": \"Stadio\",\r\n  \"price\": 50.00,\r\n  \"maxSeats\": 350,\r\n  \"artistId\": \"136f4126-fc3b-4da7-7218-08dd6e0f5a5b\",\r\n  \"date\": \"2025-03-28T17:42:56.321Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Event?id=6e8e8fa6-c09a-4ef4-3d1d-08dd6e2185ee",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Event"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6e8e8fa6-c09a-4ef4-3d1d-08dd6e2185ee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBbW1pbmlzdHJhdG9yZSIsImV4cCI6MTc0MzE4NTM2MSwiaXNzIjoiaHR0cHM6Ly9iYXNlLmNvbSIsImF1ZCI6Imh0dHBzOi8vYmFzZS1kYXNoYm9hcmQuY29tIn0.60mfvPncRkegbcRaU1RYu1HQvLqltBspP3nvhMlfvIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Event/5db65fcb-5286-49c5-3088-08dd6e175946",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Event",
+								"5db65fcb-5286-49c5-3088-08dd6e175946"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "MyTickets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjRkYzQ3MmViLTYzYTUtNDEyNS1iYzdhLTY1MGRkNDhmZDk5NyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFtbWluaXN0cmF0b3JlIiwiZXhwIjoxNzQzMTk0MDQ1LCJpc3MiOiJodHRwczovL2Jhc2UuY29tIiwiYXVkIjoiaHR0cHM6Ly9iYXNlLWRhc2hib2FyZC5jb20ifQ.pthjP7ISrTLf8g9AsrLtvw-8qkhIKcsllQsyRqdnbOA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Ticket/profile",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Ticket",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjRkYzQ3MmViLTYzYTUtNDEyNS1iYzdhLTY1MGRkNDhmZDk5NyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFtbWluaXN0cmF0b3JlIiwiZXhwIjoxNzQzMTg3NzI4LCJpc3MiOiJodHRwczovL2Jhc2UuY29tIiwiYXVkIjoiaHR0cHM6Ly9iYXNlLWRhc2hib2FyZC5jb20ifQ.QXJzDy2HBwRhpY5KCasmdERFdX_EYeYUEE87sjw_F8U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"eventoId\": \"6e8e8fa6-c09a-4ef4-3d1d-08dd6e2185ee\",\r\n  \"quantita\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Ticket",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjRkYzQ3MmViLTYzYTUtNDEyNS1iYzdhLTY1MGRkNDhmZDk5NyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFtbWluaXN0cmF0b3JlIiwiZXhwIjoxNzQzMTk0MDQ1LCJpc3MiOiJodHRwczovL2Jhc2UuY29tIiwiYXVkIjoiaHR0cHM6Ly9iYXNlLWRhc2hib2FyZC5jb20ifQ.pthjP7ISrTLf8g9AsrLtvw-8qkhIKcsllQsyRqdnbOA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Ticket/profile/c454078d-6675-456f-f24e-08dd6e249238",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Ticket",
+								"profile",
+								"c454078d-6675-456f-f24e-08dd6e249238"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJuaW5mYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im5pbmZhIGNhcnJlbm8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjRkYzQ3MmViLTYzYTUtNDEyNS1iYzdhLTY1MGRkNDhmZDk5NyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFtbWluaXN0cmF0b3JlIiwiZXhwIjoxNzQzMTk2MzUxLCJpc3MiOiJodHRwczovL2Jhc2UuY29tIiwiYXVkIjoiaHR0cHM6Ly9iYXNlLWRhc2hib2FyZC5jb20ifQ.NVrWonOj-7JQCQN6VLXd6QUSPVCOOYUsZ4yz8CGngbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/Ticket",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

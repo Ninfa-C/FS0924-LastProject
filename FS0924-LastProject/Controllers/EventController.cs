@@ -85,7 +85,7 @@ namespace LastProject.Controllers
 
             var count = result.Count();
 
-            var text = count == 1 ? $"{count} eventi trovato" : $"{count} studenti trovati";
+            var text = count == 1 ? $"{count} evento trovato" : $"{count} eventi trovati";
 
             var evento = result.Select(s => new EventDto
             {

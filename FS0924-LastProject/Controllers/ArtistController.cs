@@ -42,7 +42,7 @@ namespace LastProject.Controllers
 
             var count = result.Count();
 
-            var text = count == 1 ? $"{count} artisti trovato" : $"{count} studenti trovati";
+            var text = count == 1 ? $"{count} artista trovato" : $"{count} artisti trovati";
 
             var artist = result.Select(s => new ArtistDto
             {

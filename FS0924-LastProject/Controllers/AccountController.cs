@@ -94,6 +94,7 @@ namespace LastProject.Controllers
 
             claims.Add(new Claim(ClaimTypes.Email, user.Email!));
             claims.Add(new Claim(ClaimTypes.GivenName, $"{user.Name} {user.Surname}"));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));

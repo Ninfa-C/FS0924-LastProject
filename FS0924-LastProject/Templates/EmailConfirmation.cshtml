@@ -1,0 +1,29 @@
+﻿@model LastProject.Models.Email.ConfirmationEmail
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+	<div class="container p-3 text-center">
+		<div class="container rounded-1 p-3 border border-1 border-secondary mb-3" style="background-color: #F2FEFE;">
+			<i class="bi bi-envelope-open-heart" style="font-size: 4rem; color: cornflowerblue;"></i>
+			<h1 class="mb-2">Conferma la tua email</h1>
+			<p class="mb-3">Ciao @Model.Name, per completare l'attivazione del tuo profilo, conferma il tuo indirizzo e-mail.</p>
+			<p>Le credenziali per effettuare l'accesso ti verranno comunicate in struttura.</p>
+			<p>Ti diamo il benvenuto nella nostra grande famiglia!</p>
+		</div>
+		<a class="btn py-1 text-white fw-bold px-2" style="background-color: #1A7C8A;" href="@Model.ConfirmationLink">Conferma email</a>
+		<p class="mb-3">Grazie,</p>
+		<p class="mb-3">Team Shangri-La Hotel</p>
+		<i class="bi bi-balloon-heart" style="font-size: 3rem; color: cornflowerblue;"></i>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

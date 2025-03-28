@@ -1,0 +1,6 @@
+@FS0924_LastProject_HostAddress = http://localhost:5240
+
+GET {{FS0924_LastProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
